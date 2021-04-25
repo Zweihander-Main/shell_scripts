@@ -31,7 +31,7 @@ hi [a+] zweisolutions {●} com
 
 [AGPLv3](./LICENSE)
 
-    zweidotfiles
+    Zweihander-Main/shell_scripts
     Copyright (C) 2021 Zweihänder
 
     This program is free software: you can redistribute it and/or modify
