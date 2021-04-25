@@ -13,6 +13,7 @@ I use a specific Nextcloud News (RSS reader) account purely for videos. This scr
 
 ## See also
 [Miscellaneous Windows Scripts](https://github.com/Zweihander-Main/miscWinScripts)
+[zweidotfiles](https://github.com/Zweihander-Main/zweidotfiles)
 
 ## Available for Hire
 
