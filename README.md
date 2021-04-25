@@ -11,6 +11,8 @@ If `.env.example` file is present, create a copy called `.env` and change to sui
 ### Download Nextcloud
 I use a specific Nextcloud News (RSS reader) account purely for videos. This script talks to my local instance, downloads all the unread items using `youtube-dl`, and marks them as read.
 
+**Requires:** jq, youtube-dl, curl
+
 ## See also
 - [Miscellaneous Windows Scripts](https://github.com/Zweihander-Main/miscWinScripts)
 - [zweidotfiles](https://github.com/Zweihander-Main/zweidotfiles)
