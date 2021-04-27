@@ -33,7 +33,7 @@ pushd "$OUTPUT_DIR" || exit
 for ((i = 0; i < ${#urls[@]}; ++i)); do
     url="${urls[$i]}"
     id="${ids[$i]}"
-    if [[ -n $(youtube-dl -q -f mp4 "$url") ]]; then
+    if ! youtube-dl -q -f mp4 "$url"; then
         echo "$url" >> "$FAILED_FILE"
     fi
     # URL marks item read
