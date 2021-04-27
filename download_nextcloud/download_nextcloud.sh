@@ -3,10 +3,25 @@
 # Scenario: You have a Nextcloud news account for video RSS feeds. You want to
 # download everything unread using youtube-dl.
 
+# Exit if no .env
+. .env || exit 1
+
 # Source .env
 set -o allexport
 source .env
 set +o allexport
+
+# Make sure all variables present and sane
+set -o nounset
+: "$USERNAME"
+: "$PASSWORD"
+: "$BASE_URL"
+: "$OUTPUT_DIR"
+: "$FAILED_FILE"
+if [[ ! -d "$OUTPUT_DIR" ]]; then
+    echo "Output directory doesn't exist"
+    exit 1
+fi
 
 # -f for non-2xx/3xx codes as errors
 # -sS for disabling progress meter
@@ -28,7 +43,12 @@ ids_string=$( jq -r '.items[].id' <(echo "$return_data") )
 while read -r line; do urls+=("$line"); done <<<"$urls_string"
 while read -r line; do ids+=("$line"); done <<<"$ids_string"
 
-pushd "$OUTPUT_DIR" || exit
+if [[ ! "${urls[0]}" ]]; then
+    echo "No items found"
+    exit 0
+fi
+
+pushd "$OUTPUT_DIR" || exit 1
 
 for ((i = 0; i < ${#urls[@]}; ++i)); do
     url="${urls[$i]}"
