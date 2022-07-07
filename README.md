@@ -9,11 +9,30 @@ If `.env.example` file is present, create a copy called `.env` and change to sui
 ## Scripts
 
 ### Download Nextcloud
+
 I use a specific Nextcloud News (RSS reader) account purely for videos. This script talks to my local instance, downloads all the unread items using `youtube-dl`, and marks them as read.
 
 **Requires:** jq, youtube-dl, curl
 
+### Memo to Inbox
+
+I have a memo email folder which I send memos to using [Blitzmail](https://f-droid.org/packages/de.grobox.blitzmail/). The memos are pulled in using `isync` and then each of their body text's are written to an inbox file in emacs (as TODOs).
+
+To ensure the inbox file isn't clobbered, you can set the following which the script uses to save all buffers before writing to the inbox file:
+
+```emacs-lisp
+(defun sigusr1-handler()
+  "Handle SIGUSR1 signal by saving all buffers."
+  (interactive)
+  (evil-write-all nil))
+
+(define-key special-event-map [sigusr1] 'sigusr1-handler)
+```
+
+**Requires:** notmuch, isync, awk
+
 ## See also
+
 - [Miscellaneous Windows Scripts](https://github.com/Zweihander-Main/miscWinScripts)
 - [zweidotfiles](https://github.com/Zweihander-Main/zweidotfiles)
 
