@@ -29,7 +29,7 @@ To ensure the inbox file isn't clobbered, you can set the following which the sc
 (define-key special-event-map [sigusr1] 'sigusr1-handler)
 ```
 
-**Requires:** notmuch, isync, awk
+**Requires:** jq, notmuch, isync, awk
 
 ## See also
 
