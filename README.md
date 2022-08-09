@@ -31,6 +31,12 @@ To ensure the inbox file isn't clobbered, you can set the following which the sc
 
 **Requires:** jq, notmuch, isync, awk
 
+### OpenBB
+
+Script to run Docker image of [OpenBB Terminal](https://github.com/OpenBB-finance/OpenBBTerminal/) with X support. Config will be located at `XDG_CONFIG_HOME/openbb/openbb.env`. Make sure to set `OPENBB_BACKEND=Qt5Agg` in config. 
+
+**Requires:** docker
+
 ## See also
 
 - [Miscellaneous Windows Scripts](https://github.com/Zweihander-Main/miscWinScripts)
