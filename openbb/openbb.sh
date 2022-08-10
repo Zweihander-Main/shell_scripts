@@ -8,5 +8,5 @@ sudo docker run -it --rm \
 	--env-file="${XDG_CONFIG_HOME}/openbb/openbb.env" \
        	-e DISPLAY=$DISPLAY \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	ghcr.io/openbb-finance/openbbterminal-poetry:latest
+	ghcr.io/openbb-finance/openbbterminal-poetry-full-deps:latest
 xhost -local:
