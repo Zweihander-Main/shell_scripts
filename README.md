@@ -14,6 +14,10 @@ I use a specific Nextcloud News (RSS reader) account purely for videos. This scr
 
 **Requires:** ~jq~, ~youtube-dl~, ~curl~
 
+### Log dunst
+
+For use with `script` in `dunstrc`.
+
 ### Memo to Inbox
 
 I have a memo email folder which I send memos to using [Blitzmail](https://f-droid.org/packages/de.grobox.blitzmail/). The memos are pulled in using `isync` and then each of their body text's are written to an inbox file in emacs (as TODOs).
