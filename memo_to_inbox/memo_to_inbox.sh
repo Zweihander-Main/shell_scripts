@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env sh
 
 # Scenario: You have a mail folder pulled in via isync in which you want to
 # convert all the message bodies to org format and mark them read.
