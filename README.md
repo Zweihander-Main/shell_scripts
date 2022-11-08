@@ -12,7 +12,7 @@ If `.env.example` file is present, create a copy called `.env` and change to sui
 
 I use a specific Nextcloud News (RSS reader) account purely for videos. This script talks to my local instance, downloads all the unread items using `youtube-dl`, and marks them as read.
 
-**Requires:** jq, youtube-dl, curl
+**Requires:** ~jq~, ~youtube-dl~, ~curl~
 
 ### Memo to Inbox
 
@@ -29,13 +29,19 @@ To ensure the inbox file isn't clobbered, you can set the following which the sc
 (define-key special-event-map [sigusr1] 'sigusr1-handler)
 ```
 
-**Requires:** jq, notmuch, isync, awk
+**Requires:** ~jq~, ~notmuch~, ~isync~, ~awk~
 
 ### OpenBB
 
-Script to run Docker image of [OpenBB Terminal](https://github.com/OpenBB-finance/OpenBBTerminal/) with X support. Config will be located at `XDG_CONFIG_HOME/openbb/openbb.env`. Make sure to set `OPENBB_BACKEND=Qt5Agg` in config. 
+Script to run Docker image of [OpenBB Terminal](https://github.com/OpenBB-finance/OpenBBTerminal/) with X support. Config will be located at `XDG_CONFIG_HOME/openbb/openbb.env`. Make sure to set `OPENBB_BACKEND=Qt5Agg` in config.
 
-**Requires:** docker
+**Requires:** ~docker~
+
+### Start KeepassXC
+
+Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
+
+**Requires:** ~ykchalresp~, ~keepassxc~
 
 ## See also
 
