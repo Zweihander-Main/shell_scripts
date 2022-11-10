@@ -24,7 +24,6 @@ set -o nounset
 : "$KEYFILE"
 : "$PASSFILE"
 
-#!/usr/bin/env sh
 echo $(ykchalresp -2 "$YKPASS") | \
 	/usr/bin/keepassxc \
 	--keyfile "$KEYFILE" \
