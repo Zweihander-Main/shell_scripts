@@ -47,6 +47,12 @@ Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
 
 **Requires:** ~ykchalresp~, ~keepassxc~
 
+### Start DWM
+
+Start DWM, allow for restarts, log errors to file
+
+**Requires:** ~dwm~
+
 ### Toggle sink
 
 Switch between two pulse sinks.
