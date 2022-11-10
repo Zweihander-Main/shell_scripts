@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # Scenario: You have a Nextcloud news account for video RSS feeds. You want to
 # download everything unread using youtube-dl.

@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # Scenario: Workaround allows YubiKey challenge-response for CLI unlock of
 # KeepassXC file.

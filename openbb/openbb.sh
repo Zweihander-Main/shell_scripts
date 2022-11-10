@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # Scenario: You want to run OpenBBTerminal via docker on Linux with X support.
 

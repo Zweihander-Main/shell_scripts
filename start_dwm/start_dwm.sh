@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # Scenario: start DWM, allow for restarts, log errors to file
 
