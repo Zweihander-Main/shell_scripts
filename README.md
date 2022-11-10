@@ -41,12 +41,6 @@ Script to run Docker image of [OpenBB Terminal](https://github.com/OpenBB-financ
 
 **Requires:** ~docker~
 
-### Start KeepassXC
-
-Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
-
-**Requires:** ~ykchalresp~, ~keepassxc~
-
 ### Start DWM
 
 Start DWM, allow for restarts, log errors to file
@@ -58,6 +52,18 @@ Start DWM, allow for restarts, log errors to file
 Start GPG, connecting to right TTY
 
 **Requires:** ~gpg-connect-agent~
+
+### Start i3lock
+
+Setup i3lock, sync to monitor turn off
+
+**Requires:** ~i3lock~
+
+### Start KeepassXC
+
+Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
+
+**Requires:** ~ykchalresp~, ~keepassxc~
 
 ### Toggle sink
 
