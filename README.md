@@ -47,6 +47,12 @@ Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
 
 **Requires:** ~ykchalresp~, ~keepassxc~
 
+### Toggle sink
+
+Switch between two pulse sinks.
+
+**Requires:** ~pactl~, ~dunstify~
+
 ## See also
 
 - [Miscellaneous Windows Scripts](https://github.com/Zweihander-Main/miscWinScripts)
