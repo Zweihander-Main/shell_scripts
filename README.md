@@ -53,6 +53,12 @@ Start DWM, allow for restarts, log errors to file
 
 **Requires:** ~dwm~
 
+### Start GPG
+
+Start GPG, connecting to right TTY
+
+**Requires:** ~gpg-connect-agent~
+
 ### Toggle sink
 
 Switch between two pulse sinks.
