@@ -35,6 +35,12 @@ To ensure the inbox file isn't clobbered, you can set the following which the sc
 
 **Requires:** ~jq~, ~notmuch~, ~isync~, ~awk~
 
+### Open Video
+
+I have a folder full of videos and want to open the oldest one, moving it to a 'watched' folder in the process. This allows me to take any cognitive effort needed in terms of choosing a video out of the equation.
+
+**Requires:** ~fd~, ~xdg-open~
+
 ### OpenBB
 
 Script to run Docker image of [OpenBB Terminal](https://github.com/OpenBB-finance/OpenBBTerminal/) with X support. Config will be located at `XDG_CONFIG_HOME/openbb/openbb.env`. Make sure to set `OPENBB_BACKEND=Qt5Agg` in config.
