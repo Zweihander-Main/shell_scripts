@@ -1,10 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Scenario: start DWM, allow for restarts, log errors to file
 
 # Get .env relative to script
-script_file=$( realpath "$0" )
-script_dir=$( dirname "$script_file" )
+script_file=$(realpath "$0")
+script_dir=$(dirname "$script_file")
 env="${script_dir}/.env"
 
 # Exit if no .env
@@ -26,8 +26,7 @@ while true; do
 	dwm 2>"$LOG_LOC"
 
 	# Kill stalonetray if running
-	if pgrep stalonetray >/dev/null
-	then
+	if pgrep stalonetray >/dev/null; then
 		pkill stalonetray
 	fi
 done

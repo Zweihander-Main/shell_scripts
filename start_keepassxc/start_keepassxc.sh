@@ -1,11 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Scenario: Workaround allows YubiKey challenge-response for CLI unlock of
 # KeepassXC file.
 
 # Get .env relative to script
-script_file=$( realpath "$0" )
-script_dir=$( dirname "$script_file" )
+script_file=$(realpath "$0")
+script_dir=$(dirname "$script_file")
 env="${script_dir}/.env"
 
 # Exit if no .env
@@ -24,8 +24,8 @@ set -o nounset
 : "$KEYFILE"
 : "$PASSFILE"
 
-echo $(ykchalresp -2 "$YKPASS") | \
+echo $(ykchalresp -2 "$YKPASS") |
 	/usr/bin/keepassxc \
-	--keyfile "$KEYFILE" \
-	--pw-stdin \
-	"$PASSFILE"
+		--keyfile "$KEYFILE" \
+		--pw-stdin \
+		"$PASSFILE"
