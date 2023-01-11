@@ -24,6 +24,7 @@ set -o nounset
 : "$KEYFILE"
 : "$PASSFILE"
 : "$MAX_SECONDS"
+: "$YUBIKEY_PORT"
 
 # Check key file exists and hopefully trigger automount in doing so
 # Loop until it exists or maximum number of seconds is exceeded
@@ -43,8 +44,7 @@ done
 
 # Check yubikey is plugged in
 # Loop until it is or max seconds is exceeded (counting from previous wait)
-until ykinfo -2 >/dev/null 2>&1; do
-
+until ykinfo -"$YUBIKEY_PORT" >/dev/null 2>&1; do
     current_time=$(date +%s)
 
     if [[ $((current_time - start_time)) -gt $MAX_SECONDS ]]; then
@@ -56,7 +56,7 @@ until ykinfo -2 >/dev/null 2>&1; do
 done
 
 # Open KeepassXC with Yubikey challenge
-echo $(ykchalresp -2 "$YKPASS") |
+echo $(ykchalresp -"$YUBIKEY_PORT" "$YKPASS") |
     /usr/bin/keepassxc \
         --keyfile "$KEYFILE" \
         --pw-stdin \
