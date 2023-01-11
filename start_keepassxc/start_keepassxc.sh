@@ -23,9 +23,27 @@ set -o nounset
 : "$YKPASS"
 : "$KEYFILE"
 : "$PASSFILE"
+: "$MAX_SECONDS"
 
+# Check key file exists and hopefully trigger automount in doing so
+# Loop until it exists or maximum number of seconds is exceeded
+start_time=$(date +%s)
+
+while [[ ! -f "$KEYFILE" ]]; do
+    current_time=$(date +%s)
+
+    if [[ $((current_time - start_time)) -gt $MAX_SECONDS ]]; then
+        echo "Key file can't be accessed"
+        exit 1
+    fi
+
+    # Sleep for 1 second before checking again
+    sleep 1
+done
+
+# Open KeepassXC with Yubikey challenge
 echo $(ykchalresp -2 "$YKPASS") |
-	/usr/bin/keepassxc \
-		--keyfile "$KEYFILE" \
-		--pw-stdin \
-		"$PASSFILE"
+    /usr/bin/keepassxc \
+        --keyfile "$KEYFILE" \
+        --pw-stdin \
+        "$PASSFILE"
