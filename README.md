@@ -68,8 +68,11 @@ Setup i3lock, sync to monitor turn off
 ### Start KeepassXC
 
 Workaround allows YubiKey challenge-response for CLI unlock of KeepassXC file.
+Stick `wait-for-keepassxc-require.sh` in `ExecStartPre` in a service file. When
+requirements are met (Yubikey plugged in, files accessible), KeepassXC can be
+started using `start_keepassxc.sh`
 
-**Requires:** ~ykchalresp~, ~keepassxc~
+**Requires:** ~ykchalresp~, ~ykinfo~, ~keepassxc~
 
 ### Toggle sink
 
