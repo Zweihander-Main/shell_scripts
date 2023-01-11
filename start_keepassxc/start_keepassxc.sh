@@ -29,7 +29,7 @@ set -o nounset
 # Loop until it exists or maximum number of seconds is exceeded
 start_time=$(date +%s)
 
-while [[ ! -f "$KEYFILE" ]]; do
+until [[ -f "$KEYFILE" ]]; do
     current_time=$(date +%s)
 
     if [[ $((current_time - start_time)) -gt $MAX_SECONDS ]]; then
@@ -38,6 +38,20 @@ while [[ ! -f "$KEYFILE" ]]; do
     fi
 
     # Sleep for 1 second before checking again
+    sleep 1
+done
+
+# Check yubikey is plugged in
+# Loop until it is or max seconds is exceeded (counting from previous wait)
+until ykinfo -2 >/dev/null 2>&1; do
+
+    current_time=$(date +%s)
+
+    if [[ $((current_time - start_time)) -gt $MAX_SECONDS ]]; then
+        echo "Yubikey likely not plugged in."
+        exit 1
+    fi
+
     sleep 1
 done
 
