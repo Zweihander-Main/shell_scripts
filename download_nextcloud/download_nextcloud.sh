@@ -30,6 +30,13 @@ if [[ ! -d "$OUTPUT_DIR" ]]; then
     exit 1
 fi
 
+# Help message
+if [[ $1 == "-h" || $1 == "--help" ]]; then
+    echo "Usage: download_nextcloud [count]"
+    echo "Downloads [count] unread items from Nextcloud. If count is not specified, defaults to max unread."
+    exit 0
+fi
+
 # -f for non-2xx/3xx codes as errors
 # -sS for disabling progress meter
 # -L follow redirects
@@ -57,7 +64,13 @@ fi
 
 pushd "$OUTPUT_DIR" || exit 1
 
-for ((i = 0; i < ${#urls[@]}; ++i)); do
+if [[ $# -eq 1 && $1 =~ ^[0-9]+$ ]]; then
+    count=$1
+else
+    count=${#urls[@]}
+fi
+
+for ((i = 0; i < ${count}; ++i)); do
     url="${urls[$i]}"
     id="${ids[$i]}"
     if ! youtube-dl -q "$url"; then
