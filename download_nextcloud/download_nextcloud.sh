@@ -48,7 +48,7 @@ return_data=$(curl \
     -X GET \
     --user "$USERNAME:$PASSWORD" \
     -H "Accept: \"application/json\"" \
-    "$BASE_URL/apps/news/api/v1-2/items?type=3&getRead=false&batchSize=-1")
+    "$BASE_URL/apps/news/api/v1-2/items?type=3&getRead=false&batchSize=-1&oldestFirst=true")
 
 # -r to remove quotes (raw-output)
 urls_string=$(jq -r '.items[].url' <(echo "$return_data"))
