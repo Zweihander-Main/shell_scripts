@@ -25,6 +25,7 @@ set -o nounset
 : "$BASE_URL"
 : "$OUTPUT_DIR"
 : "$FAILED_FILE"
+: "$YTDL_ARGS"
 if [[ ! -d "$OUTPUT_DIR" ]]; then
     echo "Output directory doesn't exist"
     exit 1
@@ -73,7 +74,7 @@ fi
 for ((i = 0; i < ${count}; ++i)); do
     url="${urls[$i]}"
     id="${ids[$i]}"
-    if ! youtube-dl -q "$url"; then
+    if ! youtube-dl -q "$YTDL_ARGS" "$url"; then
         echo "$url" >>"$FAILED_FILE"
     fi
     # URL marks item read
