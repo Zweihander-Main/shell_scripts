@@ -21,6 +21,11 @@ set +o allexport
 set -o nounset
 : "$LOG_LOC"
 
+if [ ! -f "$LOG_LOC" ]; then
+	mkdir -p "$(dirname "$LOG_LOC")"
+	touch "$LOG_LOC"
+fi
+
 while true; do
 	# Log stderror to a file
 	dwm 2>"$LOG_LOC"
