@@ -33,8 +33,16 @@ set -o noclobber
 # Save all open buffers in emacs (preventing conflicting disk overwrite)
 killall -s SIGUSR1 emacs
 
+# Call mbsync and pass through dialogs
+function call_mbsync() {
+    mbsync -c "${MBSYNC_CONFIG}" --all &
+    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" windowfocus keydown Enter
+    xdotool keyup --window 0 Enter
+    wait
+}
+
 # Sync and index email
-mbsync -c "${MBSYNC_CONFIG}" --all
+call_mbsync
 notmuch new
 
 # Fetch notmuch data in json format and use jq to comb through
@@ -72,4 +80,4 @@ killall -s SIGUSR1 emacs
 # Mark unread and sync changes
 notmuch tag -unread "${NOTMUCH_SEARCH_STRING}"
 sleep 1
-mbsync -c "${MBSYNC_CONFIG}" --all
+call_mbsync
