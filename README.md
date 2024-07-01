@@ -33,7 +33,7 @@ To ensure the inbox file isn't clobbered, you can set the following which the sc
 (define-key special-event-map [sigusr1] 'sigusr1-handler)
 ```
 
-**Requires:** ~jq~, ~notmuch~, ~isync~, ~awk~
+**Requires:** ~jq~, ~notmuch~, ~isync~, ~awk~, ~xdotool~
 
 ### Open Video
 
@@ -72,7 +72,7 @@ Stick `wait-for-keepassxc-require.sh` in `ExecStartPre` in a service file. When
 requirements are met (Yubikey plugged in, files accessible), KeepassXC can be
 started using `start_keepassxc.sh`
 
-**Requires:** ~ykchalresp~, ~ykinfo~, ~keepassxc~
+**Requires:** ~ykchalresp~, ~ykinfo~, ~keepassxc~, ~xdotool~
 
 ### Toggle sink
 

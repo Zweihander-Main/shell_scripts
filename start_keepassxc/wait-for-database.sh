@@ -22,8 +22,27 @@ set +o allexport
 set -o nounset
 : "$SECRET_TOOL_USER"
 
+function call_secret_tool() {
+    secret-tool lookup user "$SECRET_TOOL_USER" &>/dev/null
+    echo $? >"$1"
+}
+
+function check_secret_tool() {
+    tmpfile=$(mktemp)
+    call_secret_tool "$tmpfile" &
+    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" windowfocus keydown Enter
+    xdotool keyup --window 0 Enter
+    wait
+    output=$(cat "$tmpfile")
+    rm "$tmpfile"
+    if [ "$output" -eq 0 ]; then
+        return 0
+    fi
+    return 1
+}
+
 while true; do
-    if secret-tool lookup user "$SECRET_TOOL_USER"; then
+    if check_secret_tool; then
         break
     fi
     sleep 5
