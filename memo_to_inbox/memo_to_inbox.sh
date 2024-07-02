@@ -36,8 +36,10 @@ killall -s SIGUSR1 emacs
 # Call mbsync and pass through dialogs
 function call_mbsync() {
     mbsync -c "${MBSYNC_CONFIG}" --all &
-    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" windowfocus keydown Enter
-    xdotool keyup --window 0 Enter
+    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" \
+        windowfocus \
+        keydown Enter \
+        keyup --window 0 Enter
     wait
 }
 

@@ -30,8 +30,10 @@ function call_secret_tool() {
 function check_secret_tool() {
     tmpfile=$(mktemp)
     call_secret_tool "$tmpfile" &
-    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" windowfocus keydown Enter
-    xdotool keyup --window 0 Enter
+    timeout 1s xdotool search --sync --onlyvisible --name "KeepassXC -  Access Request" \
+        windowfocus \
+        keydown Enter \
+        keyup --window 0 Enter
     wait
     output=$(cat "$tmpfile")
     rm "$tmpfile"
