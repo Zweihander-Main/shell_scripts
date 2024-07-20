@@ -26,6 +26,7 @@ if [ ! -f "$LOG_LOC" ]; then
 	touch "$LOG_LOC"
 fi
 
+# Allow for MOD-C-S-Q to restart DWM
 while true; do
 	# Log stderror to a file
 	dwm 2>"$LOG_LOC"
